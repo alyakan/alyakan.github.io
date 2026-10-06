@@ -1,0 +1,330 @@
+:root {
+  --frost: #e8edf1;
+  --paper: #ffffff;
+  --ink: #17202b;
+  --slate: #5a6675;
+  --rule: #c9d2db;
+  --cobalt: #2a55c9;
+  --signal: #f5c542;
+
+  /* One family throughout; headings differ by size and weight only. */
+  --display: "Geist", system-ui, sans-serif;
+  --body: "Geist", system-ui, sans-serif;
+  --code: "Geist Mono", ui-monospace, monospace;
+
+  /* Scale on a 4:3 ratio from a 17px base. */
+  --s-1: 0.875rem;
+  --s0: 1.0625rem;
+  --s1: 1.375rem;
+  --s2: 1.875rem;
+  --s4: clamp(3rem, 8vw, 5.25rem);
+
+  --measure: 66ch;
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --page: 76rem;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--frost); color: var(--ink); scroll-padding-top: 2rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  font: 400 var(--s0)/1.6 var(--body);
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--cobalt); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; border-radius: 2px; }
+
+code { font: 0.86em var(--code); }
+
+h1, h2, h3, h4 { font-family: var(--display); margin: 0; color: var(--ink); }
+
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: var(--gutter); top: 1rem; background: var(--paper); padding: 0.5rem 0.75rem; }
+
+/* Masthead */
+
+.masthead { max-width: var(--page); margin: 0 auto; padding: clamp(3rem, 10vh, 6rem) var(--gutter) 4.5rem; }
+
+h1 {
+  font-size: var(--s4);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.job-title { font-size: var(--s2); font-weight: 500; letter-spacing: -0.02em; color: var(--cobalt); margin: 0.6rem 0 0; }
+
+.lede { max-width: 46ch; font-size: var(--s1); line-height: 1.5; color: var(--slate); margin: 1.5rem 0; }
+
+.contact { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; font-family: var(--display); }
+
+/* Page layout with the table of contents on the right */
+
+.layout {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid;
+  grid-template-columns: minmax(0, 48rem) 13rem;
+  justify-content: space-between;
+  gap: 0 var(--gutter);
+}
+
+.toc {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+  font-family: var(--display);
+  font-size: var(--s-1);
+  padding-top: 0.4rem;
+}
+
+.toc-title { color: var(--slate); margin: 0 0 0.75rem; }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc ol ol { padding-left: 0.9rem; }
+.toc li { margin: 0.15rem 0; }
+
+.toc a {
+  display: block;
+  padding: 0.2rem 0 0.2rem 0.75rem;
+  border-left: 2px solid var(--rule);
+  color: var(--slate);
+  text-decoration: none;
+}
+.toc a:hover { color: var(--ink); }
+.toc a[aria-current] { color: var(--ink); border-left-color: var(--cobalt); font-weight: 600; }
+
+/* Sections */
+
+/* Sections are separated by space; rules only appear between entries. */
+section { padding: 0 0 4.5rem; }
+
+h2 { font-size: var(--s2); font-weight: 650; letter-spacing: -0.025em; margin-bottom: 1.25rem; }
+h3 { font-size: var(--s1); font-weight: 600; letter-spacing: -0.015em; margin: 3rem 0 1.25rem; }
+h2 + h3 { margin-top: 0.5rem; }
+h4 { font-size: var(--s0); font-weight: 600; line-height: 1.35; }
+
+/* Expandable entries */
+
+details.entry + details.entry { border-top: 1px solid var(--rule); }
+
+summary {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1.5rem;
+  gap: 0.15rem 1rem;
+  padding: 1rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+summary::-webkit-details-marker { display: none; }
+
+.entry .title { font-family: var(--display); font-weight: 600; font-size: var(--s0); grid-column: 1; }
+.entry .gist { color: var(--slate); grid-column: 1; }
+summary:hover .title { color: var(--cobalt); }
+
+/* A plus that turns into a minus when the entry is open. */
+summary::after {
+  content: "";
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: end;
+  align-self: center;
+  width: 0.85rem;
+  height: 0.85rem;
+  background:
+    linear-gradient(var(--ink), var(--ink)) center / 100% 2px no-repeat,
+    linear-gradient(var(--ink), var(--ink)) center / 2px 100% no-repeat;
+  transition: transform 200ms ease;
+}
+details[open] > summary::after {
+  background: linear-gradient(var(--ink), var(--ink)) center / 100% 2px no-repeat;
+  transform: rotate(180deg);
+}
+
+.role { font-weight: 400; color: var(--slate); margin-left: 0.35rem; }
+
+.body { padding: 0 0 1.5rem; max-width: var(--measure); }
+.body > :first-child { margin-top: 0; }
+.body p { margin: 0.75rem 0 0; }
+.body ul { margin: 0.5rem 0 0; padding-left: 1.2rem; list-style: disc; }
+.body li { margin: 0.35rem 0; }
+.body li::marker { color: var(--slate); }
+
+.pr + .pr { margin-top: 1.75rem; }
+.pr p { margin-top: 0.35rem; }
+
+.status {
+  font-weight: 500;
+  font-size: var(--s-1);
+  color: var(--slate);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 0.05rem 0.55rem;
+  margin-left: 0.4rem;
+  white-space: nowrap;
+}
+
+/* Experience timeline: dates in the gutter, a line, and a dot per job. */
+
+.timeline { list-style: none; padding: 0; margin: 0; }
+
+.timeline > li { display: grid; grid-template-columns: 11rem minmax(0, 1fr); }
+
+.timeline .when {
+  margin: 0;
+  padding: 1.05rem 1.5rem 0 0;
+  text-align: right;
+  font-family: var(--display);
+  font-size: var(--s-1);
+  color: var(--slate);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.timeline .entry {
+  position: relative;
+  border: 0;
+  border-left: 2px solid var(--rule);
+  padding-left: 1.5rem;
+}
+.timeline > li:last-child .entry { border-left-color: transparent; }
+.timeline > li:last-child .entry::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: 0;
+  height: 1.6rem;
+  border-left: 2px solid var(--rule);
+}
+
+.timeline .entry::before {
+  content: "";
+  position: absolute;
+  /* border-box keeps the centre at -1px, the middle of the 2px line. */
+  box-sizing: border-box;
+  left: -8px;
+  top: 1.25rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--frost);
+  border: 2px solid var(--ink);
+  z-index: 1;
+}
+.timeline details[open].entry::before { background: var(--cobalt); border-color: var(--cobalt); }
+
+/* Experience bullets are a shade softer so their bolded numbers and keywords stand out. */
+.timeline .body li { color: #3d4856; }
+.timeline .body strong { color: var(--ink); font-weight: 600; }
+
+/* Entries with nothing to expand, like a career break, match the summary row's layout. */
+.entry.plain { display: grid; gap: 0.15rem; padding-block: 1rem; }
+.timeline .entry.plain::before { border-color: var(--slate); }
+
+/* Skills and education */
+
+.skills { display: grid; grid-template-columns: 9.5rem minmax(0, 1fr); gap: 0.6rem 1.5rem; margin: 0; max-width: 48rem; }
+.skills dt { font-family: var(--display); font-weight: 600; }
+.skills dd { margin: 0; }
+
+.education { margin: 0; }
+
+/* The PostHog demo panel */
+
+.demo { margin: 1.25rem 0 0; max-width: 34rem; }
+
+.event {
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  border-radius: 10px;
+  box-shadow: 6px 6px 0 var(--ink);
+  padding: 1.25rem 1.25rem 1.5rem;
+  font-family: var(--code);
+  font-size: 0.9rem;
+}
+
+.event-head { font-family: var(--display); color: var(--slate); font-size: var(--s-1); margin: 0 0 0.5rem; }
+.event .event-head.after { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px dashed var(--rule); }
+
+.event .row { display: grid; grid-template-columns: 13rem minmax(0, 1fr); align-items: center; gap: 0.75rem; margin: 0.35rem 0; }
+.key { color: var(--slate); overflow-wrap: anywhere; }
+
+.value { font: inherit; color: var(--ink); min-width: 0; }
+
+input.value {
+  width: 100%;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 0.4rem 0.55rem;
+  background: var(--frost);
+}
+
+.toggle { display: inline-flex; align-items: center; gap: 0.6rem; }
+.toggle input { width: 1.1rem; height: 1.1rem; accent-color: var(--cobalt); margin: 0; }
+
+output.value { font-weight: 500; padding: 0.15rem 0.35rem; border-radius: 4px; justify-self: start; }
+output[data-state="set"] { background: var(--signal); }
+output[data-state="missing"] { color: var(--slate); font-weight: 400; }
+
+output.flash { animation: flash 600ms ease-out; }
+@keyframes flash { from { box-shadow: 0 0 0 6px rgba(245, 197, 66, 0.55); } to { box-shadow: 0 0 0 0 rgba(245, 197, 66, 0); } }
+
+.demo figcaption { color: var(--slate); font-size: var(--s-1); line-height: 1.5; margin-top: 1.25rem; }
+
+footer { max-width: var(--page); margin: 0 auto; padding: 3rem var(--gutter) 4rem; font-family: var(--display); font-size: var(--s1); }
+footer p { margin: 0; border-top: 1px solid var(--rule); padding-top: 3rem; }
+
+/* Narrow screens: the table of contents becomes a sticky bar above the content. */
+
+@media (max-width: 960px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+
+  .toc {
+    order: -1;
+    top: 0;
+    z-index: 2;
+    padding: 0.6rem 0;
+    margin: 0 calc(-1 * var(--gutter));
+    padding-inline: var(--gutter);
+    background: var(--frost);
+    border-bottom: 1px solid var(--rule);
+    overflow-x: auto;
+  }
+  .toc-title { display: none; }
+  .toc ol, .toc li { display: flex; gap: 0.25rem 1.25rem; white-space: nowrap; margin: 0; }
+  .toc ol ol { padding-left: 1.25rem; }
+  .toc a { border-left: 0; border-bottom: 2px solid transparent; padding: 0.2rem 0; }
+  .toc a[aria-current] { border-bottom-color: var(--cobalt); }
+
+  html { scroll-padding-top: 3.5rem; }
+}
+
+@media (max-width: 640px) {
+  .timeline > li { grid-template-columns: 1fr; border-left: 2px solid var(--rule); padding-left: 1.5rem; }
+  .timeline > li:last-child { border-left-color: transparent; }
+  .timeline .when { text-align: left; padding: 1rem 0 0; }
+  .timeline .entry { border-left: 0; padding-left: 0; }
+  .timeline .entry::before { left: calc(-1.5rem - 8px); top: -1.2rem; }
+  .timeline > li:last-child .entry::after { display: none; }
+  .timeline > li:last-child::before { content: ""; }
+
+  .skills { grid-template-columns: 1fr; gap: 0 0; }
+  .skills dd { margin-bottom: 0.75rem; }
+
+  .event .row { grid-template-columns: 1fr; gap: 0.25rem; }
+  .event { box-shadow: 4px 4px 0 var(--ink); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  output.flash { animation: none; }
+  summary::after { transition: none; }
+}

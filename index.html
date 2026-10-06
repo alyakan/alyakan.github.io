@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aly Yakan, Product Engineer</title>
+  <meta name="description" content="Aly Yakan builds iOS apps and SDKs. Projects, open source contributions and CV.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <h1>Aly Yakan</h1>
+    <p class="job-title">Product Engineer</p>
+    <p class="lede">For nine years I've built apps and SDKs, mostly on iOS, for bug reporting, EV charging, banking security and field inspection. I also ship my own apps and contribute to open source.</p>
+    <ul class="contact">
+      <li>Cairo, Egypt</li>
+      <li><a href="mailto:aly.yakan@gmail.com">aly.yakan@gmail.com</a></li>
+      <li><a href="https://github.com/alyakan">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/aly-yakan-729139123/">LinkedIn</a></li>
+    </ul>
+  </header>
+
+  <div class="layout">
+    <main id="main">
+      <section id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title">My Projects</h2>
+
+        <details class="entry">
+          <summary>
+            <span class="title">FuelFox</span>
+            <span class="gist">AI nutrition coach and calorie tracker on the App Store.</span>
+          </summary>
+          <div class="body">
+            <p>FuelFox logs meals from a photo or a sentence and coaches you toward your goals. The core is shared Kotlin Multiplatform code under a native SwiftUI app.</p>
+            <ul>
+              <li>Claude-powered meal logging and coaching.</li>
+              <li>HealthKit integration for activity and body measurements.</li>
+              <li>Supabase backend and RevenueCat subscriptions.</li>
+            </ul>
+            <p><a href="https://apps.apple.com/us/app/fuelfox-ai-calorie-tracker/id6765678446">FuelFox on the App Store</a></p>
+          </div>
+        </details>
+
+        <details class="entry">
+          <summary>
+            <span class="title">Dawn</span>
+            <span class="gist">Prayer times for iPhone and Apple Watch on the App Store.</span>
+          </summary>
+          <div class="body">
+            <ul>
+              <li>Times are calculated offline on the device, with no account or server.</li>
+              <li>Widgets on iPhone and complications on Apple Watch.</li>
+              <li>Full Arabic support.</li>
+            </ul>
+            <p><a href="https://apps.apple.com/us/app/dawn-prayer-times-qibla/id6805250555">Dawn on the App Store</a></p>
+          </div>
+        </details>
+      </section>
+
+      <section id="open-source" aria-labelledby="open-source-title">
+        <h2 id="open-source-title">Open Source Contributions</h2>
+
+        <details class="entry">
+          <summary>
+            <span class="title">PostHog</span>
+            <span class="gist">Three pull requests across the iOS SDK and the main platform.</span>
+          </summary>
+          <div class="body">
+            <article class="pr">
+              <h4><a href="https://github.com/PostHog/posthog/pull/112937">Device marketing names</a> <span class="status">In review</span></h4>
+              <p>A data pipeline transformation that turns Apple model identifiers like <code>iPhone15,2</code> into the names people recognise, sourced from Xcode's device database. Simulators are only labelled when the SDK says so, because native Mac apps report the same CPU architecture. Covered by unit tests and nine end-to-end cases.</p>
+
+              <figure class="demo">
+                <form class="event" id="demo" autocomplete="off">
+                  <p class="event-head">Incoming event</p>
+                  <label class="row" for="model">
+                    <span class="key">$device_model</span>
+                    <input id="model" name="model" class="value" value="iPhone15,2" spellcheck="false" list="examples">
+                  </label>
+                  <datalist id="examples">
+                    <option value="iPhone18,4">
+                    <option value="iPhone17,5">
+                    <option value="iPhone12,8">
+                    <option value="iPad13,18">
+                    <option value="arm64">
+                  </datalist>
+                  <label class="row" for="emulator">
+                    <span class="key">$is_emulator</span>
+                    <span class="toggle">
+                      <input id="emulator" name="emulator" type="checkbox">
+                      <span class="toggle-value" id="emulator-value">false</span>
+                    </span>
+                  </label>
+                  <p class="event-head after">After the transformation</p>
+                  <p class="row" aria-live="polite">
+                    <span class="key">$device_marketing_name</span>
+                    <output id="name" for="model emulator" class="value"></output>
+                  </p>
+                </form>
+                <figcaption>The transformation's lookup, running in your browser. Try another identifier, or <code>arm64</code> with and without the emulator flag.</figcaption>
+              </figure>
+            </article>
+
+            <article class="pr">
+              <h4><a href="https://github.com/PostHog/posthog-ios/pull/872"><code>disableGeoIp</code> for the iOS SDK</a> <span class="status">Merged</span></h4>
+              <p>Lets apps opt out of IP-based location on both events and feature flags, matching PostHog's other SDKs.</p>
+            </article>
+
+            <article class="pr">
+              <h4><a href="https://github.com/PostHog/posthog-ios/pull/881">Deep link test isolation</a> <span class="status">Merged</span></h4>
+              <p>Flaky deep link tests were failing iOS SDK CI across the repo. Each test now gets its own event storage, so one test's events can't leak into another's assertions.</p>
+            </article>
+
+            <p><a href="https://github.com/pulls?q=is%3Apr+author%3Aalyakan+org%3APostHog">All my pull requests to PostHog</a></p>
+          </div>
+        </details>
+
+        <details class="entry">
+          <summary>
+            <span class="title">Lantern for Claude Code</span>
+            <span class="gist">A macOS app that makes Claude Code's work readable.</span>
+          </summary>
+          <div class="body">
+            <p>Open source under MIT, built with Tauri (Rust) and React with TypeScript. <a href="https://github.com/alyakan/lantern">github.com/alyakan/lantern</a></p>
+            <ul>
+              <li>Shows tool calls and file edits as readable diffs.</li>
+              <li>Walks through a change one step at a time.</li>
+              <li>Reviews pull requests file by file and parses test runs.</li>
+              <li>Ships signed, notarized releases that update themselves.</li>
+            </ul>
+          </div>
+        </details>
+
+        <details class="entry">
+          <summary>
+            <span class="title">Network Monitor and BoundedTaskGroup</span>
+            <span class="gist">Swift tools for inspecting traffic and limiting concurrency.</span>
+          </summary>
+          <div class="body">
+            <ul>
+              <li><strong>Network Monitor</strong> is a SwiftNIO proxy for inspecting HTTPS traffic from mobile apps.</li>
+              <li><strong>BoundedTaskGroup</strong> is a Swift package for task groups with a concurrency limit. It runs in production at Lumiform.</li>
+            </ul>
+            <p><a href="https://github.com/alyakan">github.com/alyakan</a></p>
+          </div>
+        </details>
+      </section>
+
+      <section id="cv" aria-labelledby="cv-title">
+        <h2 id="cv-title">CV</h2>
+
+        <h3 id="experience">Experience</h3>
+        <ol class="timeline">
+          <li>
+            <p class="when"><time>Aug 2025</time> to now</p>
+            <details class="entry">
+              <summary>
+                <span class="title">Lumiform <span class="role">Senior iOS Engineer</span></span>
+                <span class="gist">A mobile inspection and audit platform for frontline teams. Remote.</span>
+              </summary>
+              <div class="body">
+                <ul>
+                  <li>Led the team's move to TDD, raising test coverage of the <strong>~140K-line</strong> iOS codebase from <strong>under 1% to over 35%</strong>.</li>
+                  <li>Shipped <strong>12+ iOS features</strong>, including the iOS side of <strong>four AI features</strong> (image description, image validation, item counting, writing suggestions), password reset, file proof for actions and prefilled inspection links.</li>
+                  <li>Replaced Alamofire with an async/await URLSession networking layer and rebuilt authentication and SSO on top of it.</li>
+                  <li>Rebuilt the inspection upload pipeline with background uploads, bounded concurrency and adaptive compression, <strong>eliminating failed image uploads</strong>.</li>
+                  <li>Fixed <strong>50+ bugs</strong> (<strong>15</strong> reported by customers), including a <strong>600 MB memory leak</strong> (now a flat <strong>~110 MB</strong>) and the top WebKit crash on older iPads.</li>
+                  <li>Drove the SwiftUI redesign and iOS 26 adoption, and automated App Store releases with Fastlane, GitHub Actions and Claude Code.</li>
+                  <li>Merged <strong>130+ PRs</strong>, reviewed <strong>160+</strong>, and wrote the team's AI-assisted development conventions.</li>
+                </ul>
+              </div>
+            </details>
+          </li>
+          <li>
+            <p class="when"><time>Aug 2024</time> to <time>Jul 2025</time></p>
+            <div class="entry plain">
+              <span class="title">Career break</span>
+              <span class="gist">Time with my family after the birth of my child.</span>
+            </div>
+          </li>
+          <li>
+            <p class="when"><time>Jun 2023</time> to <time>Jul 2024</time></p>
+            <details class="entry">
+              <summary>
+                <span class="title">Entersekt <span class="role">Senior iOS Engineer</span></span>
+                <span class="gist">Security technology protecting financial institutions against digital fraud. Remote.</span>
+              </summary>
+              <div class="body">
+                <ul>
+                  <li>Built a modern Swift SDK on async/await and secure WebSockets, while maintaining the legacy Objective-C SDK and cross-platform wrappers.</li>
+                  <li>Developed a risk signal collection SDK to improve fraud detection, and hardened SDKs with iXGuard.</li>
+                  <li>Owned releases of the Transakt authenticator app and mentored junior developers.</li>
+                </ul>
+              </div>
+            </details>
+          </li>
+          <li>
+            <p class="when"><time>Apr 2021</time> to <time>May 2023</time></p>
+            <details class="entry">
+              <summary>
+                <span class="title">Backbase <span class="role">Senior iOS Engineer</span></span>
+                <span class="gist">Engagement banking platform for financial institutions. Netherlands.</span>
+              </summary>
+              <div class="body">
+                <ul>
+                  <li>Maintained the Core SDK that <strong>every Backbase client</strong> relies on, and helped split it from a monolithic Objective-C library into modular Swift frameworks.</li>
+                  <li>Built core banking libraries and a Mobile Design System adopted by <strong>about 90% of clients</strong>.</li>
+                  <li>Moved CI from Jenkins to Bitrise and aligned with Android on cross-platform behaviour.</li>
+                </ul>
+              </div>
+            </details>
+          </li>
+          <li>
+            <p class="when"><time>Aug 2019</time> to <time>Mar 2021</time></p>
+            <details class="entry">
+              <summary>
+                <span class="title">New Motion <span class="role">iOS App Developer</span></span>
+                <span class="gist">EV charging platform, acquired by Shell. Netherlands.</span>
+              </summary>
+              <div class="body">
+                <ul>
+                  <li>Led the EV Charging iOS app, giving drivers access to <strong>180K+ charge points</strong> across Europe.</li>
+                  <li>Built mapping and payment features, and new charging apps using BLE and Wi-Fi.</li>
+                </ul>
+              </div>
+            </details>
+          </li>
+          <li>
+            <p class="when"><time>Jun 2017</time> to <time>Jul 2019</time></p>
+            <details class="entry">
+              <summary>
+                <span class="title">Instabug <span class="role">iOS Engineer</span></span>
+                <span class="gist">In-app feedback and bug reporting platform. Egypt.</span>
+              </summary>
+              <div class="body">
+                <ul>
+                  <li>Built and launched the Feature Requests and In-App Surveys products, the latter on Product Hunt.</li>
+                  <li>Improved the stability of the Instabug iOS SDK, reducing crash rates across iOS versions in an SDK that handled <strong>millions of sessions a month</strong> and <strong>over 1 billion</strong> in total.</li>
+                  <li>Built a multithreading module for API testing to catch thread-safety issues.</li>
+                </ul>
+              </div>
+            </details>
+          </li>
+        </ol>
+
+        <h3 id="skills">Skills</h3>
+        <dl class="skills">
+          <dt>Languages</dt><dd>Swift, Objective-C, Kotlin, TypeScript</dd>
+          <dt>Apple</dt><dd>SwiftUI, UIKit, Swift Concurrency, Combine, RxSwift, Core Data, Realm, HealthKit, WidgetKit, StoreKit, Core Bluetooth</dd>
+          <dt>Cross-platform</dt><dd>Kotlin Multiplatform, Tauri, React, Supabase</dd>
+          <dt>Tools</dt><dd>Xcode, SPM, CocoaPods, Fastlane, GitHub Actions, Bitrise, GitLab CI, Sentry</dd>
+          <dt>AI</dt><dd>Claude Code, Claude API, AI-assisted development workflows</dd>
+          <dt>Practices</dt><dd>TDD, Clean Architecture, MVVM-C, multithreading, REST, gRPC, BLE, encryption</dd>
+        </dl>
+
+        <h3 id="education">Education</h3>
+        <p class="education"><strong>Bachelor of Computer Science and Engineering</strong><br>German University in Cairo, class of 2017</p>
+      </section>
+    </main>
+
+    <nav class="toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+      <ol>
+        <li><a href="#projects">My Projects</a></li>
+        <li><a href="#open-source">Open Source Contributions</a></li>
+        <li>
+          <a href="#cv">CV</a>
+          <ol>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#education">Education</a></li>
+          </ol>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <footer>
+    <p>Want to talk? Email <a href="mailto:aly.yakan@gmail.com">aly.yakan@gmail.com</a>.</p>
+  </footer>
+
+  <script src="assets/device-names.js"></script>
+  <script src="assets/demo.js"></script>
+  <script src="assets/toc.js"></script>
+</body>
+</html>
