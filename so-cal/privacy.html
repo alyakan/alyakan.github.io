@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>so-cal privacy policy</title>
+  <meta name="description" content="Privacy policy for so-cal, a personal tool I use to publish posts to my own social accounts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .doc h1 { font-size: var(--s2); letter-spacing: -0.025em; }
+    .doc .lede { font-size: var(--s0); margin: 0.75rem 0 0; }
+    .doc .body { padding-bottom: 4rem; }
+    .doc h2 { font-size: var(--s1); margin: 2.25rem 0 0.25rem; }
+  </style>
+</head>
+<body class="doc">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <p><a href="../">Aly Yakan</a></p>
+    <h1>so-cal privacy policy</h1>
+    <p class="lede">Last updated 7 October 2026.</p>
+  </header>
+
+  <main id="main" class="layout">
+    <div class="body">
+      <p>so-cal is a personal tool. I run it on my own computer to publish posts I have written and approved to my own social media accounts, including Threads. It is not offered to anyone else, and no one else can sign in to it.</p>
+
+      <h2>What it accesses</h2>
+      <p>When I connect an account, so-cal receives an access token from that platform. For Threads it uses these permissions:</p>
+      <ul>
+        <li><code>threads_basic</code>, to read the connected account's username and confirm the token works.</li>
+        <li><code>threads_content_publish</code>, to publish posts I have approved.</li>
+      </ul>
+      <p>so-cal does not read other people's posts, messages, followers or any other data.</p>
+
+      <h2>Where data is stored</h2>
+      <p>Access tokens and post drafts are stored only on my computer, in local files. so-cal has no server, database or analytics, and it sends this data nowhere except to the platform it is publishing to.</p>
+
+      <h2>Sharing</h2>
+      <p>No data is sold, shared or transferred to anyone.</p>
+
+      <h2>Retention</h2>
+      <p>Tokens are kept until the account is disconnected or the token expires. Published posts stay on the platform under that platform's own policies.</p>
+
+      <h2 id="delete-your-data">Delete your data</h2>
+      <p>so-cal's access can be removed, and its data deleted, at any time:</p>
+      <ul>
+        <li>In Threads, open Settings, Account, Website permissions, and remove the app. This revokes its token immediately.</li>
+        <li>In so-cal, open Connections and choose Disconnect. This deletes the stored token from the computer.</li>
+      </ul>
+      <p>For confirmation that data has been deleted, email <a href="mailto:aly.yakan@gmail.com">aly.yakan@gmail.com</a>.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy: <a href="mailto:aly.yakan@gmail.com">aly.yakan@gmail.com</a>. See also the <a href="terms.html">terms of service</a>.</p>
+    </div>
+  </main>
+</body>
+</html>
