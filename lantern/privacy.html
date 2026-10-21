@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lantern privacy policy</title>
+  <meta name="description" content="Privacy policy for the Lantern phone app: no account, no analytics, no tracking. It talks to your own Mac and nothing else.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .doc h1 { font-size: var(--s2); letter-spacing: -0.025em; }
+    .doc .lede { font-size: var(--s0); margin: 0.75rem 0 0; }
+    .doc .body { padding-bottom: 4rem; }
+    .doc h2 { font-size: var(--s1); margin: 2.25rem 0 0.25rem; }
+  </style>
+</head>
+<body class="doc">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <p><a href="../">Aly Yakan</a> / <a href="./">Lantern</a></p>
+    <h1>Lantern privacy policy</h1>
+    <p class="lede">Last updated 21 October 2026.</p>
+  </header>
+
+  <main id="main" class="layout">
+    <div class="body">
+      <p>The Lantern phone app is a remote control for Lantern on your own Mac. It shows what the AI coding agents running there are doing, lets you approve or deny what they ask, and lets you send them messages. It has no account, no server of mine, no advertising and no analytics. I do not collect any data about you, and I could not read it if I wanted to: it never passes through anything I run.</p>
+
+      <h2>Where your data goes</h2>
+      <p>The app connects over your Wi-Fi to the Lantern app on your own Mac, and to nothing else of mine. Everything between the phone and the Mac, including your chats, your messages and your answers, is encrypted end to end with a key made when you pair them. The conversations are shown on the phone while the app is open and are not saved on it.</p>
+      <p>The AI itself runs on your Mac, under your own account with its provider. The phone never contacts an AI service.</p>
+
+      <h2>What is stored on the phone</h2>
+      <ul>
+        <li>The pairing: your phone's key and the key, name and address of the Mac it is paired with. It is kept in the iOS Keychain or the Android Keystore, on this device only, and is not backed up or synced.</li>
+        <li>The date of the last tip you gave, if you gave one, so the app can say thank you. It is kept the same way.</li>
+      </ul>
+      <p>Nothing else is stored.</p>
+
+      <h2>Permissions</h2>
+      <ul>
+        <li><strong>Camera.</strong> Only to read the pairing code your Mac shows. The picture is not saved or sent anywhere.</li>
+        <li><strong>Local network.</strong> To find your Mac on your Wi-Fi and connect to it.</li>
+        <li><strong>Notifications</strong> (optional). To tell you when a chat needs you or has finished. If you allow them, the phone gets a push token from Expo's push service and gives it to your Mac. When something happens, your Mac asks that service to send you a notification; what passes through it is the token, which chat it is about and what kind of event it is. It never carries code, prompts or messages. A chat's title is included only if you turn that on in Lantern on your Mac. If you do not allow notifications, none of this happens.</li>
+      </ul>
+
+      <h2>Tips</h2>
+      <p>Supporting development with a tip is optional, and nothing in the app is locked behind it. A tip is bought through the App Store or Google Play, so Apple or Google handles the payment under their own terms and privacy policies. I get no payment details and no name; the app is told only that the purchase went through.</p>
+
+      <h2>Links in chats</h2>
+      <p>If a chat contains a link and you tap it, your phone opens it in the browser. That visit is between you and that site.</p>
+
+      <h2>Sharing, selling and tracking</h2>
+      <p>I do not share, sell or transfer any data, because I do not have any. The app does not track you and contains no advertising or analytics code.</p>
+
+      <h2>Deleting your data</h2>
+      <p>Everything the app keeps is on your phone. To remove it, unpair in the app (tap your Mac's name on Home, then Unpair this phone), or delete the app. To also stop the Mac accepting this phone, remove it in Lantern's Settings on the Mac, under Remote control.</p>
+
+      <h2>Children</h2>
+      <p>The app is not directed at children and collects no data from anyone.</p>
+
+      <h2>Changes</h2>
+      <p>If this policy changes, the date at the top changes with it.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy: <a href="mailto:aly.yakan@gmail.com">aly.yakan@gmail.com</a>, or open an issue on <a href="https://github.com/alyakan/lantern/issues">GitHub</a>.</p>
+    </div>
+  </main>
+</body>
+</html>

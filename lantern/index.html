@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lantern for iPhone and Android: help and support</title>
+  <meta name="description" content="Help for the Lantern phone app, a remote control for Lantern on your Mac: pairing, troubleshooting and how to get in touch.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .doc h1 { font-size: var(--s2); letter-spacing: -0.025em; }
+    .doc .lede { font-size: var(--s0); margin: 0.75rem 0 0; }
+    .doc .body { padding-bottom: 4rem; }
+    .doc h2 { font-size: var(--s1); margin: 2.25rem 0 0.25rem; }
+  </style>
+</head>
+<body class="doc">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <p><a href="../">Aly Yakan</a></p>
+    <h1>Lantern for iPhone and Android</h1>
+    <p class="lede">A remote control for Lantern on your Mac: see what your AI coding agents are doing, and answer them from anywhere in the room.</p>
+  </header>
+
+  <main id="main" class="layout">
+    <div class="body">
+      <h2>What it does</h2>
+      <ul>
+        <li>Shows your open chats and which of them are waiting on you.</li>
+        <li>Lets you approve or deny what an agent asks to do with a swipe, or read the whole command first.</li>
+        <li>Lets you answer an agent's questions, send it messages, wake a sleeping chat, and start a new chat in one of your projects.</li>
+        <li>Suggests what to do next when nothing is waiting.</li>
+        <li>Can notify you when a chat needs you or has finished.</li>
+      </ul>
+      <p>It works with <a href="https://github.com/alyakan/lantern">Lantern for Mac</a>, which has to be running, on the same Wi-Fi as your phone. The phone talks to your Mac directly, encrypted, and to no server of mine. See the <a href="privacy.html">privacy policy</a>.</p>
+
+      <h2>Pairing your phone with your Mac</h2>
+      <ol>
+        <li>In Lantern on your Mac, open Settings, then Remote control, and turn on "Let paired phones control Lantern".</li>
+        <li>If macOS asks whether Lantern may accept incoming connections, choose Allow.</li>
+        <li>Click "Show a pairing code".</li>
+        <li>In the phone app, allow the camera and point it at the code. (Or use "Copy the link" on the Mac and "Paste the link instead" on the phone.)</li>
+        <li>Confirm the Mac's name on the phone. A code works once, and only for a few minutes.</li>
+      </ol>
+
+      <h2>If the phone can't reach your Mac</h2>
+      <ul>
+        <li>Check that your Mac is awake, Lantern is running, and both are on the same Wi-Fi. A guest network or a VPN can keep them apart.</li>
+        <li>In Lantern's Settings, Remote control must be turned on.</li>
+        <li>Open System Settings, Network, Firewall on the Mac. If the firewall is on, Lantern has to be allowed to accept incoming connections. If you chose "Deny" once, change it there.</li>
+        <li>On iPhone, Settings, Lantern: "Local Network" must be on.</li>
+        <li>Tap "Try again" on the phone. If it still fails, unpair (tap your Mac's name on Home) and pair again.</li>
+      </ul>
+
+      <h2>Unpairing</h2>
+      <p>In the phone app, tap your Mac's name on Home and choose "Unpair this phone". To also stop the Mac accepting that phone, remove it in Lantern's Settings, under Remote control.</p>
+
+      <h2>Tips</h2>
+      <p>The app is free and nothing is locked. "Support development" is an optional tip if you want to say thanks.</p>
+
+      <h2>Source and licence</h2>
+      <p>The phone app's source is in the <a href="https://github.com/alyakan/lantern/tree/main/mobile">Lantern repository</a>, under the PolyForm Noncommercial License: free to read, run, change and share for non-commercial use. Lantern for Mac is MIT-licensed. Lantern is an independent project and is not affiliated with or endorsed by Anthropic.</p>
+
+      <h2>Contact</h2>
+      <p>Questions, bugs or ideas: <a href="mailto:aly.yakan@gmail.com">aly.yakan@gmail.com</a>, or open an issue on <a href="https://github.com/alyakan/lantern/issues">GitHub</a>. Please say which phone, which version of the app, and what the app showed.</p>
+    </div>
+  </main>
+</body>
+</html>
