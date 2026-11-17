@@ -65,6 +65,22 @@
       <section id="open-source" aria-labelledby="open-source-title">
         <h2 id="open-source-title">Open Source Contributions</h2>
 
+        <details class="entry" open>
+          <summary>
+            <span class="title">Lantern for Claude Code</span>
+            <span class="gist">A macOS app that makes Claude Code's work readable.</span>
+          </summary>
+          <div class="body">
+            <p>Open source under MIT, built with Tauri (Rust) and React with TypeScript. <a href="https://github.com/alyakan/lantern">github.com/alyakan/lantern</a></p>
+            <ul>
+              <li>Shows tool calls and file edits as readable diffs.</li>
+              <li>Walks through a change one step at a time.</li>
+              <li>Reviews pull requests file by file and parses test runs.</li>
+              <li>Ships signed, notarized releases that update themselves.</li>
+            </ul>
+          </div>
+        </details>
+
         <details class="entry">
           <summary>
             <span class="title">PostHog</span>
@@ -122,22 +138,6 @@
 
         <details class="entry">
           <summary>
-            <span class="title">Lantern for Claude Code</span>
-            <span class="gist">A macOS app that makes Claude Code's work readable.</span>
-          </summary>
-          <div class="body">
-            <p>Open source under MIT, built with Tauri (Rust) and React with TypeScript. <a href="https://github.com/alyakan/lantern">github.com/alyakan/lantern</a></p>
-            <ul>
-              <li>Shows tool calls and file edits as readable diffs.</li>
-              <li>Walks through a change one step at a time.</li>
-              <li>Reviews pull requests file by file and parses test runs.</li>
-              <li>Ships signed, notarized releases that update themselves.</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="entry">
-          <summary>
             <span class="title">Network Monitor and BoundedTaskGroup</span>
             <span class="gist">Swift tools for inspecting traffic and limiting concurrency.</span>
           </summary>
@@ -169,6 +169,8 @@
                   <li>Shipped <strong>12+ iOS features</strong>, including the iOS side of <strong>four AI features</strong> (image description, image validation, item counting, writing suggestions), password reset, file proof for actions and prefilled inspection links.</li>
                   <li>Replaced Alamofire with an async/await URLSession networking layer and rebuilt authentication and SSO on top of it.</li>
                   <li>Rebuilt the inspection upload pipeline with background uploads, bounded concurrency and adaptive compression, <strong>eliminating failed image uploads</strong>.</li>
+                  <li>Rebuilt photo import on ImageIO instead of UIKit redraws, targeting black photos in reports (<strong>~980 reports from 98 users a month</strong>) and a crash when picking library photos.</li>
+                  <li>Moved photos out of the Realm database into files and added compaction on launch, shrinking a <strong>1.1 GB</strong> database to <strong>1 MB</strong> in testing and cutting peak memory with 100+ photos by <strong>73%</strong> (<strong>452 MB → 120 MB</strong>).</li>
                   <li>Fixed <strong>50+ bugs</strong> (<strong>15</strong> reported by customers), including a <strong>600 MB memory leak</strong> (now a flat <strong>~110 MB</strong>) and the top WebKit crash on older iPads.</li>
                   <li>Drove the SwiftUI redesign and iOS 26 adoption, and automated App Store releases with Fastlane, GitHub Actions and Claude Code.</li>
                   <li>Merged <strong>130+ PRs</strong>, reviewed <strong>160+</strong>, and wrote the team's AI-assisted development conventions.</li>
